@@ -17,7 +17,7 @@ export class ContactsListResolver implements Resolve<any> {
     return this.apiRequestService.getContacts()
       .pipe(
         catchError(() => {
-          this.router.navigate(['/error']);
+          this.router.navigate(['/error-page']);
           return of(null);
         })
       );

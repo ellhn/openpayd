@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiService } from './api.service';
-
-//import { QuoteRequestModel } from '../shared/models/quote-request.model';
-
 import { endPoints } from '../shared/constants/endpoints';
 
 @Injectable({
@@ -17,6 +14,11 @@ export class ApiRequestService {
   getContacts(): Observable<any> {
     const req = endPoints['getContacts'];
     return this.apiService.get(req);
+  }
+
+  addContact(body): Observable<any> {
+    const req = endPoints['addContact'];
+    return this.apiService.post(req, body);
   }
 
 }

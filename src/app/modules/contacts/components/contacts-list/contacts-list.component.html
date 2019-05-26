@@ -1,3 +1,31 @@
-<div *ngFor="let contact of contacts">
-  {{contact.first_name}}
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="contacts">
+    <ng-container matColumnDef="first-name">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="last-name">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="avatar">
+      <th mat-header-cell *matHeaderCellDef> Avatar </th>
+      <td mat-cell *matCellDef="let element"> <img width="40" height="40" src={{element.avatar}} alt="Avatar image"/> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row" (click)="selectRow(row)"></tr>
+  </table>
+</div>
+
+<div class="add-button">
+  <button type="button" class="btn btn-nav" (click)="newContact()">Create new contact</button>
+  <span class="separate-buttons"></span>
+  <button type="button" class="btn btn-nav" (click)="goToMain()">Main page</button>
+</div>
+
+<div *ngIf="addContactVisible">
+  <app-add-contact [numOfContacts]="contacts.length" (changeAddContactVisibility)="triggerGetApi($event)"></app-add-contact>
 </div>

@@ -1,0 +1,27 @@
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+}
+
+.form-control {
+  line-height: 2.2rem;
+  height: 49px;
+  border: 1px solid #707070;
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+
+  &:focus, &:active {
+    border: 2px solid #67BD46;
+    box-shadow: none;
+  }
+}

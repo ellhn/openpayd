@@ -23,6 +23,18 @@
       "first_name": "John",
       "last_name": "Doe",
       "id": 4
+    },
+    {
+      "id": 5,
+      "first_name": "Ilias",
+      "last_name": "Katsoulis",
+      "avatar": "409 South Point House, 321 Chase Road"
+    },
+    {
+      "id": 6,
+      "first_name": "Ilias",
+      "last_name": "Katsoulis",
+      "avatar": "409 South Point House, 321 Chase Road"
     }
   ],
   "addresses": [

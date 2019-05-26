@@ -5,5 +5,6 @@ interface ISchemeObject {
 const domain = 'http://localhost:3000';
 
 export const endPoints: ISchemeObject = {
-  getContacts: `${domain}/contacts`
+  getContacts: `${domain}/contacts`,
+  addContact: `${domain}/contacts`
 };
