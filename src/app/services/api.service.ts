@@ -35,4 +35,23 @@ export class ApiService {
     );
   }
 
+  public put(req: string, body: any, timeOut: number = genericInitializations.apiResponseTimeout): Observable<any> {
+    return this.http.put(req, body, this.headers).pipe(
+      timeout(timeOut),
+      catchError((error: any) => {
+        const err = error || { message: 'Connection Error' };
+        return throwError(err);
+      })
+    );
+  }
+
+  public delete(req: string, timeOut: number = genericInitializations.apiResponseTimeout): Observable<any> {
+    return this.http.delete(req, this.headers).pipe(
+      timeout(timeOut),
+      catchError((error: any) => {
+        const err = error || { message: 'Connection Error' };
+        return throwError(err);
+      })
+    );
+  }
 }

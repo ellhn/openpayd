@@ -17,6 +17,11 @@ const routes: Routes = [
   {
     path: 'contacts-list',
     loadChildren: '../app/modules/contacts/contacts.module#ContactsModule'
+  },
+  {
+    path: '**',
+    redirectTo: 'error-page',
+    pathMatch: 'full'
   }
 ];
 

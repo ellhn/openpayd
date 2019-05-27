@@ -1,0 +1,61 @@
+<mat-list>
+  <mat-list-item>
+    {{sharedService.selectedContact.first_name}}
+    {{sharedService.selectedContact.last_name}}
+    <span class="space"></span>
+    <img width="40" height="40" src={{sharedService.selectedContact.avatar}} alt="Avatar" />
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<div class="example-container mat-elevation-z8" *ngIf="addresses.length">
+  <table mat-table [dataSource]="addresses">
+    <ng-container matColumnDef="street1">
+      <th mat-header-cell *matHeaderCellDef> Street1 </th>
+      <td mat-cell *matCellDef="let element"> {{element.street1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="street2">
+      <th mat-header-cell *matHeaderCellDef> Street2 </th>
+      <td mat-cell *matCellDef="let element"> {{element.street2}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="town">
+      <th mat-header-cell *matHeaderCellDef> Town </th>
+      <td mat-cell *matCellDef="let element"> {{element.town}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td class='clickable' mat-cell *matCellDef="let element"><mat-icon (click)="editAddress(element)">edit</mat-icon></td>
+    </ng-container>
+    
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td class='clickable' mat-cell *matCellDef="let element"><mat-icon (click)="deleteAddress(element)">delete</mat-icon></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"></tr>
+  </table>
+</div>
+
+<div class="add-button">
+  <button type="button" class="btn btn-nav" (click)="newAddress()">Create new address</button>
+  <span class="space"></span>
+  <button type="button" class="btn btn-nav" (click)="goToContactsList()">Contacts list page</button>
+</div>
+
+<div *ngIf="addAddressVisible">
+  <app-add-edit-address 
+      [addButtonVisible]="addButtonVisible"
+      [updateButtonVisible]="updateButtonVisible"
+      (changeVisibility)="changeVisibility()"
+      (triggerApi)="triggerApi()">
+  </app-add-edit-address>
+</div>
