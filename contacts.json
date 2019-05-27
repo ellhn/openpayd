@@ -29,22 +29,32 @@
       "first_name": "Ilias",
       "last_name": "Katsoulis",
       "avatar": "409 South Point House, 321 Chase Road"
-    },
-    {
-      "id": 6,
-      "first_name": "Ilias",
-      "last_name": "Katsoulis",
-      "avatar": "409 South Point House, 321 Chase Road"
     }
   ],
   "addresses": [
     {
+      "id": 1,
+      "contactId": 2,
       "street1": "Queen Anne's",
       "street2": "Bloomsbury",
+      "town": "London v",
+      "country": "GB"
+    },
+    {
+      "id": 2,
+      "contactId": 1,
+      "street1": "117 Abbey Road",
+      "street2": "Beatles",
       "town": "London",
-      "country": "GB",
-      "contactId": "2",
-      "id": 1
+      "country": null
+    },
+    {
+      "id": 3,
+      "street1": "Uncharted",
+      "street2": "4",
+      "town": "London",
+      "country": "",
+      "contactId": "3"
     }
   ],
   "countries": [

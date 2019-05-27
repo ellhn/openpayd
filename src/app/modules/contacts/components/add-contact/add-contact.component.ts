@@ -17,7 +17,9 @@ export class AddContactComponent implements OnInit {
   @Input()
   numOfContacts: number;
   @Output()
-  changeAddContactVisibility = new EventEmitter();
+  changeVisibility = new EventEmitter();
+  @Output()
+  triggerApi = new EventEmitter();
   fgAddForm: AbstractControl;
   contactModel = new ContactModel();
 
@@ -40,7 +42,7 @@ export class AddContactComponent implements OnInit {
   }
 
   cancelAction() {
-    this.changeAddContactVisibility.emit(false);
+    this.changeVisibility.emit();
   }
 
   addContact() {
@@ -50,7 +52,10 @@ export class AddContactComponent implements OnInit {
     this.contactModel.avatar = this.fgAddForm.value.avatarUrl;
 
     this.apiRequestService.addContact(this.contactModel).subscribe(
-      () => this.changeAddContactVisibility.emit(false),
+      () => {
+        this.changeVisibility.emit();
+        this.triggerApi.emit();
+      },
       () => this.router.navigate(['/error-page'])
     );
   }
