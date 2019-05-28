@@ -14,8 +14,6 @@ import { ContactModel } from '../../../../shared/models/contact.model';
   styleUrls: ['./add-contact.component.scss']
 })
 export class AddContactComponent implements OnInit {
-  @Input()
-  numOfContacts: number;
   @Output()
   changeVisibility = new EventEmitter();
   @Output()
@@ -46,7 +44,6 @@ export class AddContactComponent implements OnInit {
   }
 
   addContact() {
-    this.contactModel.id = this.numOfContacts + 1;
     this.contactModel.first_name = this.fgAddForm.value.firstName;
     this.contactModel.last_name = this.fgAddForm.value.lastName;
     this.contactModel.avatar = this.fgAddForm.value.avatarUrl;

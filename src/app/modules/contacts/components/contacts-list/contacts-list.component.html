@@ -23,7 +23,6 @@
 
 <div *ngIf="addContactVisible">
   <app-add-contact
-    [numOfContacts]="contacts.length"
     (changeVisibility)="changeVisibility()"
     (triggerApi)="triggerApi()">
   </app-add-contact>

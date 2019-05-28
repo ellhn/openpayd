@@ -64,7 +64,6 @@ export class AddEditAddressComponent implements OnInit {
     this.apiRequestService.getAllAddresses()
     .pipe(
       switchMap(data => {
-        this.addressModel.id = data['length'] + 1;
         this.addressModel.street1 = this.fgAddEditForm.value.street1;
         this.addressModel.street2 = this.fgAddEditForm.value.street2;
         this.addressModel.town = this.fgAddEditForm.value.town;
